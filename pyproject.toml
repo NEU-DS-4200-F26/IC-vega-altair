@@ -1,0 +1,11 @@
+[project]
+name = "In-Class_Programming--Vega-Altair"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "altair[all]>=6.0.0",
+    "marimo>=0.19.8",
+    "pandas>=3.0.0",
+]

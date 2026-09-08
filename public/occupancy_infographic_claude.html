@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh, The Homes You'll Own! A South End Story</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #a29bfe 100%);
+            font-family: 'Patrick Hand', cursive;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 8px solid #2d3436;
+        }
+        
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5em;
+            text-align: center;
+            color: #d63031;
+            margin: 0 0 10px 0;
+            text-shadow: 4px 4px 0px #fdcb6e;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8em;
+            text-align: center;
+            color: #0984e3;
+            margin: 0 0 40px 0;
+        }
+        
+        .poem {
+            font-size: 1.5em;
+            line-height: 1.8;
+            color: #2d3436;
+            margin: 30px 0;
+            padding: 20px;
+            background: #dfe6e9;
+            border-radius: 15px;
+            border-left: 8px solid #6c5ce7;
+        }
+        
+        .poem p {
+            margin: 10px 0;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .decade {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .decade-label {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5em;
+            color: #fd79a8;
+            min-width: 120px;
+            text-align: right;
+            text-shadow: 2px 2px 0px #fdcb6e;
+        }
+        
+        .bar-container {
+            flex: 1;
+            height: 80px;
+            background: #ecf0f1;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 4px solid #2d3436;
+            position: relative;
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .owner-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00b894, #55efc4);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .owner-bar::after {
+            content: '🏠';
+            position: absolute;
+            right: 10px;
+            font-size: 1.2em;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .renter-label {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3em;
+            color: #636e72;
+        }
+        
+        .big-number {
+            font-family: 'Fredoka One', cursive;
+            font-size: 8em;
+            color: #00b894;
+            text-align: center;
+            margin: 40px 0;
+            text-shadow: 6px 6px 0px #fdcb6e;
+            line-height: 1;
+        }
+        
+        .big-number-label {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2em;
+            color: #d63031;
+            text-align: center;
+            margin-top: -20px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fdcb6e 0%, #fdcb6e 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 80%;
+            padding: 0 5px;
+            font-weight: bold;
+        }
+        
+        .cloud {
+            background: white;
+            border-radius: 100px;
+            padding: 20px 40px;
+            margin: 20px;
+            border: 4px solid #2d3436;
+            font-size: 1.3em;
+            display: inline-block;
+            box-shadow: 4px 4px 0px #b2bec3;
+        }
+        
+        .fun-fact {
+            background: #ff7675;
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 1.4em;
+            text-align: center;
+            border: 4px solid #2d3436;
+            box-shadow: 6px 6px 0px #d63031;
+        }
+        
+        .fun-fact strong {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .wavy-line {
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #6c5ce7,
+                #6c5ce7 20px,
+                #fd79a8 20px,
+                #fd79a8 40px,
+                #fdcb6e 40px,
+                #fdcb6e 60px
+            );
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 1.2em;
+            color: #636e72;
+            margin-top: 40px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oh, The Homes You'll Own!</h1>
+        <div class="subtitle">A South End Boston Story</div>
+        
+        <div class="poem">
+            <p>In Boston's South End, where the brownstones stand tall,</p>
+            <p>A change came about—the most curious of all!</p>
+            <p>From <span class="highlight">Ten Percent Owners</span> in Nineteen-Fifty,</p>
+            <p>To more than a THIRD—now isn't that nifty?</p>
+        </div>
+        
+        <div class="wavy-line"></div>
+        
+        <div class="big-number">360%</div>
+        <div class="big-number-label">Growth in Home Ownership!</div>
+        
+        <div class="wavy-line"></div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <div class="cloud">📈 Watch the green grow! 🏡</div>
+        </div>
+        
+        <div class="timeline">
+            <div class="decade">
+                <div class="decade-label">1950</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 10%;">10%</div>
+                    <div class="renter-label">90% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">1960</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 9%;">9%</div>
+                    <div class="renter-label">91% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">1970</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 12%;">12%</div>
+                    <div class="renter-label">88% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">1980</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 15%;">15%</div>
+                    <div class="renter-label">85% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">1990</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 22%;">22%</div>
+                    <div class="renter-label">78% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">2000</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 30%;">30%</div>
+                    <div class="renter-label">70% renters</div>
+                </div>
+            </div>
+            
+            <div class="decade">
+                <div class="decade-label">2010</div>
+                <div class="bar-container">
+                    <div class="owner-bar" style="width: 36%;">36%</div>
+                    <div class="renter-label">64% renters</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wavy-line"></div>
+        
+        <div class="fun-fact">
+            <strong>✨ From Renters to Owners! ✨</strong>
+            In just 60 years, the South End transformed from a neighborhood where 
+            9 out of 10 homes were rented to one where more than 1 in 3 families own their homes!
+        </div>
+        
+        <div class="poem">
+            <p>"I do not like to rent!" they said.</p>
+            <p>"I'll BUY a home, paint walls bright red!"</p>
+            <p>From Ten to Thirty-Six it grew,</p>
+            <p>More owners here—and owners GREW!</p>
+            <p></p>
+            <p>In 1950, renters ruled the day,</p>
+            <p>But owners had a different way!</p>
+            <p>Year after year, the numbers rose,</p>
+            <p>As ownership bloomed, like a bright red rose! 🌹</p>
+            <p></p>
+            <p>From brownstone steps to painted doors,</p>
+            <p>From basement flats to upper floors,</p>
+            <p>The South End changed, both near and far,</p>
+            <p>Now homeowners know just who they are!</p>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <div class="cloud" style="background: #74b9ff; color: white;">
+                🏠 Home Sweet Home! 🏠
+            </div>
+        </div>
+        
+        <div class="footer">
+            Data from Boston's South End Housing Census, 1950-2010
+        </div>
+    </div>
+</body>
+</html>
